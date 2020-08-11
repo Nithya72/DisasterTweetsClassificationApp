@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title> Disaster Tweets Classification</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--===============================================================================================-->
+    <link rel="icon" type="image/png" href="/static/images/icons/favicon.ico"/>
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="/static/vendor/bootstrap/css/bootstrap.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="/static/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="/static/fonts/iconic/css/material-design-iconic-font.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="/static/vendor/animate/animate.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="/static/vendor/css-hamburgers/hamburgers.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="/static/vendor/animsition/css/animsition.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="/static/vendor/select2/select2.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="/static/vendor/daterangepicker/daterangepicker.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="/static/css/util.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/main.css">
+    <!--===============================================================================================-->
+</head>
+<body>
+
+<div class="container-align-vertical">
+    <div class="wrap-contact100">
+        <div class="contact100-form-title">Disaster Tweets Classification</div>
+        <form class="contact100-form validate-form" action="{{ url_for('tweets_classify') }}" method="post">
+            <div class="wrap-input100 validate-input" data-validate="Please enter your message">
+                <textarea class="input100" name="tweet" rows="5" cols="70" maxlength="280"
+                          placeholder="Enter the Tweet.. (max 280 chars)"></textarea>
+                <span class="focus-input100"></span>
+            </div>
+
+            <div class="container-contact100-form-btn">
+                <button type="submit" class="contact100-form-btn">
+                    Classify
+                </button>
+            </div>
+        </form>
+    </div>
+    <div class="wrap-contact100">
+        {% if classification is not none %}
+            <div class="contact100-form-title">Results</div>
+            <div class="contact100-form-label">Tweet: <span>{{ tweet }}</span></div>
+            {% if classification == "DISASTER" %}
+                <div class="contact100-form-label">Classification: </label> <span
+                        style="color: #bd2130">{{ classification }}</span></div>
+            {% else %}
+                <div class="contact100-form-label">Classification: </label> <span
+                        style="color: #1e7e34">{{ classification }}</span></div>
+            {% endif %}
+        {% else %}
+            <div class="contact100-form-label">{{ tweet }}</div>
+        {% endif %}
+    </div>
+</div>
+
+
+</body>
+</html>

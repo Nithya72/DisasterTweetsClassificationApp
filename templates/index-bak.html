@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en-US" class="hide-scroll">
+<head>
+    <style>
+        body {
+            background-image: url("/static/twitter_bg.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .w3-tangerine-title {
+            font-family: "Palatino", serif;
+            font-size: 60px;
+        }
+
+        .w3-tangerine {
+            font-family: "Palatino", serif;
+            font-size: 40px;
+        }
+
+    </style>
+
+    <title> Disaster Tweets Classification</title>
+</head>
+<body>
+
+<div class="w3-tangerine-title">Disaster Tweets Classification</div>
+
+<div id="form">
+    <form action="{{ url_for('tweets_classify') }}" method="post">
+        <div class="form-group">
+            <label class="description" for="tweet"></label>
+            <textarea class="w3-tangerine" name="tweet" rows="5" cols="70" maxlength="280"
+                      placeholder="Enter the tweet here...max 280 chars"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary" style="height: 30px;width: 10%;font-size: small">Submit
+        </button>
+    </form>
+</div>
+
+
+<div id="output" class="w3-tangerine">
+    {% if tweet is not none and classification is not none %}
+        <h2>Result</h2>
+        <div>
+            <label>Tweet: </label> {{ tweet }}
+        </div>
+        <div>
+            <label>Classification: </label> {{ classification }}
+        </div>
+    {% endif %}
+</div>
+</body>
+</html>
