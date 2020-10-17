@@ -21,10 +21,10 @@ source venv/bin/activate
 
 ## **Tweet classified as disaster**
 <p align="center">
-  <img src="https://github.com/Nithya72/DisasterTweetsClassificationApp/blob/master/disaster.png" width="700" height="400"/>
+  <img src="https://github.com/Nithya72/DisasterTweetsClassificationApp/blob/master/disaster.png" width="1000" height="600"/>
 </p>
 
 ## **Tweet classified as non-disaster**
 <p align="center">
-  <img src="https://github.com/Nithya72/DisasterTweetsClassificationApp/blob/master/nondisaster.png" width="700" height="400"/>
+  <img src="https://github.com/Nithya72/DisasterTweetsClassificationApp/blob/master/nondisaster.png" width="1000" height="600"/>
 </p>
